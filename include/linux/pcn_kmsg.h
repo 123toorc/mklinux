@@ -18,7 +18,7 @@
 /* BOOKKEEPING */
 
 #define POPCORN_MAX_MCAST_CHANNELS 32
-
+// is this enough? window info
 struct pcn_kmsg_mcast_wininfo {
 	volatile unsigned char lock;
 	unsigned char owner_cpu;
@@ -27,12 +27,12 @@ struct pcn_kmsg_mcast_wininfo {
 	unsigned int num_members;
 	unsigned long phys_addr;
 };
-
+// remote kernel info 
 struct pcn_kmsg_rkinfo {
 	unsigned long phys_addr[POPCORN_MAX_CPUS];
 	struct pcn_kmsg_mcast_wininfo mcast_wininfo[POPCORN_MAX_MCAST_CHANNELS];
 };
-
+// window queue ops
 enum pcn_kmsg_wq_ops {
 	PCN_KMSG_WQ_OP_MAP_MSG_WIN,
 	PCN_KMSG_WQ_OP_UNMAP_MSG_WIN,
